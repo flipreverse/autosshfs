@@ -24,7 +24,6 @@
 PROGNAME=${0##*/}
 
 PREFIX="%PREFIX%"
-GROUP="%GROUP%"
 
 fail() {
   echo "${PROGNAME}: $@"
@@ -54,7 +53,7 @@ gid=$(id -g $username)
 test $? -eq 0 || fail "user has no primary group?"
 
 # Do some magic to sanitize environment
-mountroot="/home/${username}/mnt/ssh"
+mountroot="/home/${username}/sshfs"
 test -d "${mountroot}" || mkdir -p -m 0755 "${mountroot}" || true
 su - $username -c "test -O ${mountroot} -a -G ${mountroot}" || chown ${uid}:${gid} "${mountroot}"
 chmod 0700 "${mountroot}"
@@ -99,7 +98,6 @@ fi
 
 case "$1" in
   add)
-    gpasswd -a $username $GROUP
     create_ssh_wrapper
     if grep "^$mountroot" $MASTER_MAP_NAME 2>/dev/null
     then
@@ -110,7 +108,6 @@ case "$1" in
     ;;
   del)
     rm -f $SSH_WRAPPER
-    gpasswd -d $username $GROUP
     sed -e "s#${mountroot}.*##" -i $MASTER_MAP_NAME
     ;;
   *)
