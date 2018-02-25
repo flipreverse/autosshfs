@@ -17,6 +17,7 @@ install:
 	@install -o root -g root     -m 0755 src/autosshfs-user ${PREFIX}/bin/
 	@install -o root -g root -m 0755 src/autosshfs-map  ${PREFIX}/bin/
 	@install -o root -g root -m 0755 src/autosshfs-ssh  ${PREFIX}/bin/
+	@install -o root -g root -m 0755 src/autosshfs-utils  ${PREFIX}/bin/
 	@install -o root -g root     -m 0755 bin/keychain-ring  ${PREFIX}/bin/
 	@install -o root -g root     -m 0755 -d ${PREFIX}/share/doc/autosshfs/
 	@install -o root -g root     -m 0644 doc/* ${PREFIX}/share/doc/autosshfs

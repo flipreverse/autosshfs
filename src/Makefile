@@ -1,7 +1,7 @@
 PREFIX  = /usr/local
 RESTART = $(shell $(CURDIR)/../bin/which_restart)
 
-SCRIPTS = autosshfs-map autosshfs-ssh autosshfs-user
+SCRIPTS = autosshfs-map autosshfs-ssh autosshfs-user autosshfs-utils
 
 mkscript = sed \
 	-e "s|%PREFIX%|$(PREFIX)|" \

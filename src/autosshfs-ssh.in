@@ -22,8 +22,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>,
 # or, from the package source directory, run: make license
 #
-
 PROGNAME=`basename ${0}`
+PREFIX="%PREFIX%"
+
+. ${PREFIX}/autosshfs-utils
 
 fail() {
   echo "${PROGNAME}: $@"
