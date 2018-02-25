@@ -29,7 +29,7 @@
 # 2. $HOME points to /home/$USER
 #
 
-PROGNAME="${0##*/}"
+PROGNAME=`basename ${0}`
 
 PREFIX="%PREFIX%"
 

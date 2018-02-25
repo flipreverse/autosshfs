@@ -21,7 +21,7 @@
 # or, from the package source directory, run: make license
 #
 
-PROGNAME=${0##*/}
+PROGNAME=`basename ${0}`
 
 usage() {
 cat <<EOD
