@@ -39,9 +39,7 @@ fail() {
 }
 
 # Get username from PWD.  It assumes the mountpoint is under user's $HOME.
-USER=$(builtin pwd)
-USER=${USER#/home/}
-USER=${USER%%/*}
+USER=${AUTOFS_USER}
 
 test -n "$USER" || fail "missing user"
 
