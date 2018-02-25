@@ -58,7 +58,7 @@ test -d "${mountroot}" || mkdir -p -m 0755 "${mountroot}" || true
 su - $username -c "test -O ${mountroot} -a -G ${mountroot}" || chown ${uid}:${gid} "${mountroot}"
 chmod 0700 "${mountroot}"
 
-master_line="${mountroot} program:${PREFIX}/bin/autosshfs-map uid=${uid},gid=${gid},workaround=rename,--timeout=600,--ghost"
+master_line="${mountroot} program:${PREFIX}/bin/autosshfs-map uid=${uid},gid=${gid},workaround=rename"
 
 SSH_WRAPPER="${PREFIX}/bin/autosshfs-as-${username}"
 
