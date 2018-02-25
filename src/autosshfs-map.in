@@ -25,8 +25,6 @@
 #
 # autosshfs-map assumes the following constraints:
 #
-# 1. The mountpoint is under user's $HOME (at ~/XXX/MOUNTPOINT)
-# 2. $HOME points to /home/$USER
 #
 
 PROGNAME=`basename ${0}`
@@ -74,7 +72,7 @@ EOD
 fi
 
 OPTS="-fstype=fuse,rw,allow_other,umask=077,noatime,nosuid,nodev"
-OPTS="${OPTS},workaround=rename,ssh_command=${SSH_WRAPPER}"
+OPTS="${OPTS},uid=`id -u ${USER}`,gid=`id -g ${USER}`,workaround=rename,ssh_command=${SSH_WRAPPER}"
 
 # You can connect to host not in your configuration file:
 #
