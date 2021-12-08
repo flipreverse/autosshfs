@@ -51,7 +51,7 @@ then
   create_ssh_wrapper ${SSH_WRAPPER} ${USER}
 fi
 
-OPTS="-fstype=fuse,rw,allow_other,umask=077,noatime,nosuid,nodev"
+OPTS="-fstype=fuse,rw,allow_other,noatime,nosuid,nodev"
 OPTS="${OPTS},uid=`id -u ${USER}`,gid=`id -g ${USER}`,workaround=rename,ssh_command=${SSH_WRAPPER}"
 
 # You can connect to host not in your configuration file:
