@@ -73,7 +73,11 @@ SSH_ASKPASS=$(ssh_askpass)
 export SSH_ASKPASS
 
 # Load the keychain environment
-eval $(keychain -q --eval)
+FILE=$HOME/.keychain/`hostname`-sh
+if [ -f ${FILE} ];
+then
+	. ${FILE}
+fi
 
 # Run the SSH command
 # autosshfs-as-USER passes the HOST to ssh to as $1
